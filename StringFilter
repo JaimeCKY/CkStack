@@ -1,0 +1,34 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class StringFilter {
+    private Set<Character> allowedChars;
+
+    public StringFilter(char[] validChars) {
+        allowedChars = new HashSet<>();
+        for (char c : validChars) {
+            allowedChars.add(c);
+        }
+    }
+
+    public String filterInvalidChars(String input) {
+        StringBuilder filteredString = new StringBuilder();
+        for (char c : input.toCharArray()) {
+            if (allowedChars.contains(c)) {
+                filteredString.append(c);
+            }
+        }
+        return filteredString.toString();
+    }
+
+    public static void main(String[] args) {
+        char[] validChars = {'a', 'b', 'c', '1', '2', '3'};
+        StringFilter filter = new StringFilter(validChars);
+
+        String dirtyString = "abc!@#123"; // Example input
+        String cleanedString = filter.filterInvalidChars(dirtyString);
+
+        System.out.println("Original string: " + dirtyString);
+        System.out.println("Cleaned string: " + cleanedString);
+    }
+}

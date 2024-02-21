@@ -1,0 +1,58 @@
+public class CharStackWithArray {
+    private char[] elements;
+    private int size;
+    private static final int INITIAL_CAPACITY = 4;
+
+    public CharStackWithArray() {
+        size = 0;
+        elements = new char[INITIAL_CAPACITY];
+    }
+
+    public void push(char item) {
+        ensureCapacity(size + 1);
+        elements[size] = item;
+        size++;
+    }
+
+    private void ensureCapacity(int newSize) {
+        if (elements.length < newSize) {
+            char[] newBiggerArray = new char[elements.length * 2];
+            System.arraycopy(elements, 0, newBiggerArray, 0, size);
+            elements = newBiggerArray;
+        }
+    }
+
+    public char peek() {
+        return size > 0 ? elements[size - 1] : '\0'; // '\0' represents an empty character
+    }
+
+    public char pop() {
+        if (size > 0) {
+            char item = elements[size - 1];
+            size--;
+            return item;
+        }
+        return '\0';
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public static void main(String[] args) {
+        CharStackWithArray charStack = new CharStackWithArray();
+        charStack.push('X');
+        charStack.push('Y');
+        charStack.push('Z');
+
+        System.out.println("Top element: " + charStack.peek()); // Should print 'Z'
+
+        while (!charStack.isEmpty()) {
+            System.out.println("Popped: " + charStack.pop());
+        }
+    }
+}

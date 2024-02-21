@@ -1,0 +1,25 @@
+public class AlphabetAndNumbersArray {
+    public static void main(String[] args) {
+        char[] alphabetAndNumbers = new char[36]; // 26 letters + 10 numbers
+
+        // Fill the array with letters (uppercase and lowercase)
+        int index = 0;
+        for (char c = 'A'; c <= 'Z'; c++) {
+            alphabetAndNumbers[index++] = c;
+        }
+        for (char c = 'a'; c <= 'z'; c++) {
+            alphabetAndNumbers[index++] = c;
+        }
+
+        // Fill the array with numbers
+        for (char c = '0'; c <= '9'; c++) {
+            alphabetAndNumbers[index++] = c;
+        }
+
+        // Print the array
+        System.out.println("Alphabet and Numbers Array:");
+        for (char c : alphabetAndNumbers) {
+            System.out.print(c + " ");
+        }
+    }
+}

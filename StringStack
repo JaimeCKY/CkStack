@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+
+class StringStack {
+    private ArrayList<String> stack;
+    private int top; // Index of the top element
+    private int size;
+
+    public StringStack(int capacity) {
+        this.size = capacity;
+        this.stack = new ArrayList<>(capacity);
+        this.top = -1; // Initialize top to -1 (empty stack)
+    }
+
+    public void push(String item) {
+        if (top + 1 == size) {
+            System.out.println("Stack Overflow");
+        } else {
+            top++;
+            if (stack.size() > top) {
+                stack.set(top, item);
+            } else {
+                stack.add(item);
+            }
+        }
+    }
+
+    public String pop() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return null;
+        }
+        return stack.get(top--);
+    }
+
+    public String peek() {
+        if (isEmpty()) {
+            System.out.println("Stack Underflow");
+            return null;
+        }
+        return stack.get(top);
+    }
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public int size() {
+        return top + 1;
+    }
+
+    public static void main(String[] args) {
+        StringStack stack = new StringStack(3);
+        stack.push("hello");
+        stack.push("world");
+        stack.push("Java");
+
+        System.out.println("Top element: " + stack.peek()); // Should print "Java"
+
+        while (!stack.isEmpty()) {
+            System.out.println("Popped: " + stack.pop());
+        }
+    }
+}

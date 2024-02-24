@@ -1,0 +1,17 @@
+public class Integer {
+    public Integer() {
+        // Constructor (if needed)
+    }
+
+    public Integer stack() {
+        // Your implementation here
+        // For example, return a specific Integer value:
+        return 42;
+    }
+
+    public static void main(String[] args) {
+        Integer myInteger = new Integer();
+        Integer result = myInteger.stack();
+        System.out.println("Result from stack method: " + result);
+    }
+}

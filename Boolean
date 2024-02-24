@@ -1,0 +1,20 @@
+public class Boolean {
+    private boolean stackValue;
+
+    public Boolean(boolean initialValue) {
+        this.stackValue = initialValue;
+    }
+
+    public boolean stack() {
+        // Implement your logic here
+        // For example, toggle the value of stackValue
+        stackValue = !stackValue;
+        return stackValue;
+    }
+
+    public static void main(String[] args) {
+        Boolean myBoolean = new Boolean(true);
+        System.out.println("Initial value: " + myBoolean.stackValue);
+        System.out.println("After calling stack(): " + myBoolean.stack());
+    }
+}

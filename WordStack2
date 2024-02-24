@@ -44,6 +44,8 @@ public class WordStack {
         return top + 1;
     }
 
+    public void readWord() {}
+
     public static void main(String[] args) {
         WordStack stack = new WordStack(5);
         stack.push("Java");
